@@ -13,7 +13,7 @@ Y_OFF=200
 
 TITLE="notesedit"
 
-FILE="$HOME/.config/eww/notes.txt"
+FILE="$HOME/.config/eww/sticker/notes.txt"
 mkdir -p "$(dirname "$FILE")"
 touch "$FILE"
 
@@ -42,7 +42,7 @@ hyprctl dispatch exec "[float;size $W $H;move $X_OFF $Y_OFF]" \
     push() {
       CONTENT=\$(grep -vE \"^(#|$)\" \"\$FILE\" 2>/dev/null || true)
       [ -n \"\$CONTENT\" ] || CONTENT=\"No notes yet...\"
-      eww update \"notes_text=\$CONTENT\"
+      eww --config ~/.config/eww/sticker update \"notes_text=\$CONTENT\"
     }
 
     push
