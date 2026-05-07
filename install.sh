@@ -17,7 +17,7 @@ fi
 
 mkdir -p "$TARGET"
 
-for f in eww.yuck eww.scss eww_stickers.scss start.sh open-notes.sh uninstall.sh; do
+for f in eww.yuck eww.scss start.sh open-notes.sh uninstall.sh; do
   cp "$REPO_DIR/$f" "$TARGET/$f"
 done
 
