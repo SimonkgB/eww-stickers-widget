@@ -26,7 +26,7 @@ if [ -n "${addr:-}" ] && [ "$addr" != "null" ]; then
 fi
 
 # Spawn at the target position with a native slide-left open animation.
-# animationstyle is a window rule Hyprland applies at map time — no timing
+# animationstyle is a window rule Hyprland applies at map time - no timing
 # race with movewindowpixel needed.
 hyprctl dispatch exec "[float;size $W $H;move $X $Y;animationstyle slide left]kitty --title $TITLE -e sh -lc '
     FILE=\"$FILE\"
