@@ -1,5 +1,5 @@
 (defpoll notes_text :interval "300s"
-  "grep -vE '^(#|$)' /home/simon/.config/eww/sticker/notes.txt 2>/dev/null || echo 'No notes yet...'")
+  "grep -vE '^(#|$)' \"$HOME/.config/eww/sticker/notes.txt\" 2>/dev/null || echo 'No notes yet...'")
 
 (defwindow notes
   :monitor 0
