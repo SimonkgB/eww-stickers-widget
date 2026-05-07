@@ -18,14 +18,9 @@ if [ -f "$NOTES" ] && [ -s "$NOTES" ]; then
   echo "Notes backed up to $BACKUP"
 fi
 
-# Only remove a symlink — never delete a real directory
-if [ -L "$TARGET" ]; then
-  rm "$TARGET"
-  echo "Uninstalled (symlink removed)."
-elif [ -d "$TARGET" ]; then
-  echo "Error: $TARGET is a real directory, not a symlink created by install.sh."
-  echo "Remove it manually if you're sure."
-  exit 1
+if [ -d "$TARGET" ]; then
+  rm -rf "$TARGET"
+  echo "Uninstalled."
 else
   echo "Nothing to remove at $TARGET"
 fi

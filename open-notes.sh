@@ -6,6 +6,8 @@ Y=200
 W=420
 H=320
 
+TERMINAL="${TERMINAL:-kitty}"
+EDITOR="${EDITOR:-nano}"
 TITLE="notesedit"
 
 FILE="$HOME/.config/eww/sticker/notes.txt"
@@ -28,8 +30,9 @@ fi
 # Spawn at the target position with a native slide-left open animation.
 # animationstyle is a window rule Hyprland applies at map time - no timing
 # race with movewindowpixel needed.
-hyprctl dispatch exec "[float;size $W $H;move $X $Y;animationstyle slide left]kitty --title $TITLE -e sh -lc '
+hyprctl dispatch exec "[float;size $W $H;move $X $Y;animationstyle slide left]$TERMINAL --title $TITLE -e sh -lc '
     FILE=\"$FILE\"
+    EDITOR=\"$EDITOR\"
 
     push() {
       CONTENT=\$(grep -vE \"^(#|$)\" \"\$FILE\" 2>/dev/null || true)
@@ -44,7 +47,7 @@ hyprctl dispatch exec "[float;size $W $H;move $X $Y;animationstyle slide left]ki
     done &
     WPID=\$!
 
-    nano \"\$FILE\"
+    \$EDITOR \"\$FILE\"
 
     kill \$WPID 2>/dev/null || true
     push
