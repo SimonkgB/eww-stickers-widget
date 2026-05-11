@@ -11,19 +11,18 @@ A simple sticky notes widget for EWW (ElKowar's Wacky Widgets) that displays per
 
 ## Installation
 
-1. Copy all files to your EWW config directory
-2. Add to your window manager's autostart: `./start.sh`
-3. Edit `notes.txt` to add your notes
+1. git clone repo to local machine
+2. Run `~/eww-stickers-widget/install.sh`
+3. Add to your window manager's autostart: `~/.config/eww/sticker/start.sh`
+4. A file `~/notes.txt` will be created, you interact with the widget in the termianl, or by clicking on the sticker on your home screen
 
 ## Files
 
 - `eww.yuck` - Main widget configuration
 - `eww.scss` - Primary styles
-- `eww_stickers.scss` - Additional styling
 - `notes.txt` - Your notes content
 - `open-notes.sh` - Script to edit notes
 - `start.sh` - Startup script
 
-## Usage
-
-Run `./start.sh` to start the EWW daemon and display the notes widget.
+## Removal
+Run the command `~/.config/eww/sticker/uninstall.sh`, it will remove all files and timers
