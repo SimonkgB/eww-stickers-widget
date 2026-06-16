@@ -17,16 +17,23 @@ fi
 
 mkdir -p "$TARGET"
 
-for f in eww.yuck eww.scss start.sh open-notes.sh uninstall.sh; do
+for f in eww.yuck eww.scss start.sh open-notes.lua uninstall.sh; do
   cp "$REPO_DIR/$f" "$TARGET/$f"
 done
 
 touch "$TARGET/notes.txt"
-chmod +x "$TARGET/start.sh" "$TARGET/open-notes.sh" "$TARGET/uninstall.sh"
+chmod +x "$TARGET/start.sh" "$TARGET/open-notes.lua" "$TARGET/uninstall.sh"
 
 echo ""
 echo "Done. Start the widget with:"
 echo "  $TARGET/start.sh"
 echo ""
-echo "Or add to your Hyprland autostart:"
-echo "  exec-once = $TARGET/start.sh"
+echo "Hyprland Lua autostart example (~/.config/hypr/config/execs.lua):"
+echo '  local startup = {'
+echo "    \"$TARGET/start.sh\","
+echo '  }'
+echo ""
+echo "Optional Hyprland Lua rules (~/.config/hypr/config/rules.lua):"
+echo '  hl.window_rule({ match = { class = "notesedit" }, float = true })'
+echo '  hl.window_rule({ match = { class = "notesedit" }, size = "420 320" })'
+echo '  hl.window_rule({ match = { class = "notesedit" }, move = "20 200" })'
