@@ -1,5 +1,4 @@
-(defpoll notes_text :interval "300s"
-  "grep -vE '^(#|$)' \"$HOME/.config/eww/sticker/notes.txt\" 2>/dev/null || echo 'No notes yet...'")
+(defvar notes_text "No notes yet...")
 
 (defwindow notes
   :monitor 0
@@ -9,7 +8,7 @@
   :geometry (geometry :x '16px' :y '16px' :anchor 'top left')
   (box :class "notesbox" :width 420
     (button
-      :onclick "sh -c '~/.config/eww/sticker/open-notes.sh'" ;"sh -c 'hyprctl dispatch exec \"kitty --class notesedit -e sh -lc \\\"nano ~/.config/eww/sticker/notes.txt\\\"\"'"
+      :onclick "lua ~/.config/eww/sticker/open-notes.lua" ;"sh -c 'hyprctl dispatch exec \"kitty --class notesedit -e sh -lc \\\"nano ~/.config/eww/sticker/notes.txt\\\"\"'"
       (label
         :class "notes"
         :text notes_text
